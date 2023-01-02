@@ -6,7 +6,7 @@ void displayallcrimesformat()
 {
     cout << "crime name \t" << "crime id\t" << "crime type\t" << "crime date\t" << "crime time\t" << "number of criminals\t" << endl;
 
-    cout << crimeregistry[i].name << "\t" << crimeregistry[i].crimeid << crimeregistry[i].crimetype << "/t" << crimeregistry[i].crimeday << "/" << crimeregistry[i].crimemonth << "/" << crimeregistry[i].crimeyear << "\t" << crimeregistry[i].crimehour << ":" << crimeregistry.crimeminute << crimeregistry[i].nOfCriminals << endl;
+    cout << crimeregistry[i].name << "\t" << crimeregistry[i].crimeid <<"\t"<< crimeregistry[i].crimetype << "/t" << crimeregistry[i].crimeday << "/" << crimeregistry[i].crimemonth << "/" << crimeregistry[i].crimeyear << "\t" << crimeregistry[i].crimehour << ":" << crimeregistry.crimeminute <<"t" << crimeregistry[i].nOfCriminals << endl;
 
 }
 
@@ -49,7 +49,7 @@ void searchcriminal()
 
     
        
-        cout << "please enter the crime id you want to search for";
+        cout << "please enter the criminal id you want to search for";
          
         cin >> id;
 
