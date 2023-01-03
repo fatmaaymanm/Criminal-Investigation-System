@@ -34,6 +34,7 @@ void searchcriminal();
 void displayallcrimes();
 void displayallcriminals();
 void searchcrime();
+void printcriminalsid();
 struct user
 {
     int id = 0;
@@ -96,8 +97,49 @@ void displayallcrimes()
     {
         cout << "crime name \t" << "crime id\t" << "crime type\t" << "crime date\t" << "crime time\t" << "number of criminals\t" << endl;
 
-        cout << crimeRegistry[i].crimeName << "\t" << crimeRegistry[i].crimeID << crimeRegistry[i].crimeType << "/t" << crimeRegistry[i].crimeDay << "/" << crimeRegistry[i].crimeMonth << "/" << crimeRegistry[i].crimeYear << "\t" << crimeRegistry[i].crimeHour << ":" << crimeRegistry[i].crimeMinute<<"\t"<<crimeRegistry[i].nOfCriminals<< endl;
+        cout << crimeRegistry[i].crimeName << "\t" << crimeRegistry[i].crimeID << "\t" << crimeRegistry[i].crimeType << "\t" << crimeRegistry[i].crimeDay << "/" << crimeRegistry[i].crimeMonth << "/" << crimeRegistry[i].crimeYear << "\t" << crimeRegistry[i].crimeHour << ":" << crimeRegistry[i].crimeMinute << "\t" << crimeRegistry[i].nOfCriminals << "\t";
+        printcriminalsid();
+
+        MainMenu();
     }
+}
+
+void printcriminalsid()
+
+{
+    for (int i = 0; i < crimeArraySize; i++)
+
+    {
+        if (crimeRegistry[i].nOfCriminals == 1)
+        {
+            cout << crimeRegistry[i].criminalsID;
+        }
+
+        if (crimeRegistry[i].nOfCriminals > 1)
+        {
+            while (crimeRegistry[i].nOfCriminals>1)
+            {
+                for (int x = 0; x < crimeRegistry[i].nOfCriminals ; x++)
+
+                {
+                    if (x < crimeRegistry[i].nOfCriminals)
+                    {
+
+                        cout << crimeRegistry[i].criminalsID[x] << "-";
+                    }
+
+                    if (x == crimeRegistry[i].nOfCriminals)
+                    
+                    {
+                        cout << crimeRegistry[i].criminalsID[x]<<endl;
+                    }
+                }
+            }
+        }
+
+
+    }
+
 }
 
 
@@ -119,12 +161,13 @@ void searchcriminal()
 
 {
     int id;
+    char othersearch;
 
     bool foundcriminal = 0;
 
 
 
-    cout << "please enter the crime id you want to search for";
+    cout << "please enter the criminal id you want to search for"<<endl;
 
     cin >> id;
 
@@ -148,13 +191,41 @@ void searchcriminal()
         {
             cout << "please enter a valid id to search for";
             system("pause");
-            system("cls");
             searchcriminal();
         }
 
+       
+        cout << "Do you want to search for other criminal?" << endl;
 
+        cout << "if yes press Y if no press N" << endl;
+
+        cin >> othersearch;
+
+        switch (othersearch)
+
+        {
+        case 'Y':
+
+            searchcriminal();
+            system("cls");
+
+
+        case 'N':
+
+            MainMenu();
+
+        }
+
+
+       
     }
 
+   
+
+
+
+
+   
 
 }
 
@@ -168,7 +239,7 @@ void searchcrime()
 
 
 
-    cout << "please enter the crime id you want to search for";
+    cout << "please enter the crime id you want to search for"<<endl;
 
     cin >> id;
 
@@ -183,7 +254,7 @@ void searchcrime()
             cout << "crime id: " << crimeRegistry[i].crimeID << endl;
             cout << "crime type: " << crimeRegistry[i].crimeType << endl;
             cout << "crime date: " << crimeRegistry[i].crimeDay << "/" << crimeRegistry[i].crimeMonth << "/" << crimeRegistry[i].crimeYear << endl;
-            cout << "crime time: " << crimeRegistry[i].crimeHour << ":" << endl;
+            cout << "crime time: " << crimeRegistry[i].crimeHour << ":" << crimeRegistry[i].crimeMinute << endl;
             cout << "number of criminals: " << crimeRegistry[i].nOfCriminals << endl;
 
         }
