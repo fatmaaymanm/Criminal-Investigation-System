@@ -153,6 +153,16 @@ void displayallcriminals()
         cout << criminalRegistry[i].criminalName << "\t" << criminalRegistry[i].criminalID << "\t" << criminalRegistry[i].criminalAge << "\t" << criminalRegistry[i].criminalBirthDay << "/" << criminalRegistry[i].criminalBirthMonth << "/" << criminalRegistry[i].criminalBirthYear << "\t" << criminalRegistry[i].numOfcrimes << "\t" << criminalRegistry[i].criminalJudgementYears << endl;
 
     }
+    
+    cout << "you will be redirected to main menu " << endl;
+
+         
+        system("cls");
+        system("pause");
+
+        MainMenu();
+
+    
 
 }
 
